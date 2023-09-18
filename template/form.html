@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Air-X</title>
+    <link rel="stylesheet" href="../static/form.css" />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <a href="#" class="logo">Air-<span>X</span></a>
+        <div class="navbar-options">
+            <li><a href="/" target="_blank">Home</a></li>
+            <li><a href="" target="_blank">GFG-Article</a></li>
+        </div>
+      </ul>
+    </nav>
+
+    <div class="cardContainer">
+      <div class="card">
+        <form action="/predict" method="post">
+
+            <div class="title">Predict <span> AQI</span></div>
+
+          <div class="input-group">
+            <label class="label" for="so2">SO2:</label>
+            <input class="input" type="number" name="so2" step="0.001" required/> 
+          </div>
+
+          <div class="input-group">
+            <label class="label"  for="no2">NO2:</label>
+            <input class="input" type="number" name="no2" step="0.001" required /><br /><br />
+          </div>
+
+          <div class="input-group">
+            <label class="label" for="rspm">RSPM:</label>
+            <input class="input"  type="number" name="rspm"  step="0.001"  required/>
+          </div>
+
+          <div class="input-group">
+            <label class="label" for="spm">SPM:</label>
+            <input class="input" type="number" name="spm" step="0.001" required /><br /><br />
+          </div>
+
+
+          <button class="button" value="Predict AQI" type="submit"><span class="button-content">Predict AQI </span></button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
