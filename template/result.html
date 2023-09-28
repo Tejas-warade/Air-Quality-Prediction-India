@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AQI Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            font-size: 40px;
+            font-weight: bold;
+            color: #009900;
+        }
+
+        #predictedAqiValue {
+            font-size: 24px;
+            font-weight: bold;
+            color: #009900;
+        }
+
+        #imageContainer {
+            margin-top: 20px;
+        }
+
+        #image {
+            width: 500px;
+            margin-top: 10px;
+            border: 1px solid black;
+            box-shadow: 5px 5px 5px #888888;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #0077cc;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Predicted AQI:</h1>
+    <p id="predictedAqiValue">{{ predicted_aqi }} - {{ aqi_range }}</p>
+
+    <div id="imageContainer">
+        <img id="image" src="" alt="Air Quality Image">
+    </div>
+
+    <a href="/">Go back to Home</a>
+
+    <script>
+        const predictedAqi = parseFloat(document.getElementById('predictedAqiValue').textContent);
+        const image = document.getElementById('image');
+
+        function showImage() {
+            const imageContainer = document.getElementById('imageContainer');
+
+            if (predictedAqi <= 50) {
+                image.src = '../static/assets/Good.png';
+            } else if (predictedAqi <= 100) {
+                image.src = 'static/assets/Moderate.png';
+            } else if (predictedAqi <= 200) {
+                image.src = 'static/assets/Poor.png';
+            } else if (predictedAqi <= 300) {
+                image.src = 'static/assets/Unhealthy.png';
+            } else if (predictedAqi <= 400) {
+                image.src = 'static/assets/Very Unhealthy.png';
+            } else {
+                image.src = 'static/assets/Hazardous.png';
+            }
+
+            imageContainer.style.display = 'block';
+        }
+
+        showImage();
+    </script>
+</body>
+</html>
